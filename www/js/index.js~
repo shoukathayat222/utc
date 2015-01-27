@@ -56,7 +56,7 @@ function login(frm){
         //var postdata={ username: 'shoukat', password: '123456' };
 	$.ajax({
 	  type: "POST",
-	  dataType: "json",
+	  dataType: "jsonp",
 	  crossDomain: true,
 	  url: "http://skelectrical.net/namumkin/ws.php",
 //	  data: "id=453&action=test" 
@@ -72,7 +72,7 @@ function login(frm){
 		else{
 			$.ajax({
 			  type: "POST",
-			  dataType: "json",
+			  dataType: "jsonp",
 			  crossDomain: true,
 			  url: "http://skelectrical.net/namumkin/ws.php",
 			  data: "token="+data.token+"&get=invocie",//'},//JSON.stringify(postdata),
@@ -102,7 +102,7 @@ function login(frm){
                                       str+="<tr><td>Total</td><td>"+data[i].Total+"</td></tr>";
 
 				  }
-   				  $("#list").innerHTML=str;
+   				  $("#list").html(str);
 				}
 				 //alert(data.token);
 
