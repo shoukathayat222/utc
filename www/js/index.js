@@ -34,6 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+	
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -57,6 +58,9 @@ function login(frm){
 	$.ajax({
 	  type: "POST",
 	  dataType: "json",
+	  async: true,
+	  cache : false,
+
 	  crossDomain: true,
 	  url: "http://skelectrical.net/namumkin/ws.php",
 //	  data: "id=453&action=test" 
@@ -74,6 +78,9 @@ function login(frm){
 			$.ajax({
 			  type: "POST",
 			  dataType: "json",
+			  async: true, 
+			  cache : false,
+
 			  crossDomain: true,
 			  url: "http://skelectrical.net/namumkin/ws.php",
 			  data: "token="+data.token+"&get=invocie",//'},//JSON.stringify(postdata),
@@ -116,3 +123,10 @@ function login(frm){
 	
 	return false;
 }
+
+$( document ).bind( "mobileinit", function() {
+    // Make your jQuery Mobile framework configuration changes here!
+
+    $.mobile.allowCrossDomainPages = true;
+$.support.cors=true;
+});
