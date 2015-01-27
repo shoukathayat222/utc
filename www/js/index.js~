@@ -102,7 +102,7 @@ function login(frm){
                                       str+="<tr><td>Total</td><td>"+data[i].Total+"</td></tr>";
 
 				  }
-   				  $("#list").html(str);
+   				  $("#list").innerHTML=str;
 				}
 				 //alert(data.token);
 
