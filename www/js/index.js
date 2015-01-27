@@ -47,3 +47,71 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function login(frm){
+	var username=frm.username.value;
+	var pass=frm.password.value;
+	
+	
+        //var postdata={ username: 'shoukat', password: '123456' };
+	$.ajax({
+	  type: "POST",
+	  dataType: "json",
+	  crossDomain: true,
+	  url: "http://skelectrical.net/namumkin/ws.php",
+//	  data: "id=453&action=test" 
+	  data: "username="+username+"&password="+pass,//'},//JSON.stringify(postdata),
+
+	}).fail(function(msg){ 
+		alert("login failed 1");
+		
+	})
+	.success(function(data){
+		if(data.msg)
+			alert(data.msg);
+		else{
+			$.ajax({
+			  type: "POST",
+			  dataType: "json",
+			  crossDomain: true,
+			  url: "http://skelectrical.net/namumkin/ws.php",
+			  data: "token="+data.token+"&get=invocie",//'},//JSON.stringify(postdata),
+
+			}).fail(function(msg){ 
+				alert("login failed");
+		
+			})
+			.success(function(data){
+				if(data.msg)
+					alert('here'+data.msg);
+				else{
+			          //console.log(data);
+			          //data = jQuery.parseJSON(data);
+				  //console.log(data);
+				 $("#login").hide();
+                                  var str = "";
+				  for(i = 0; i < data.length; i++){
+                                      //alert(data[i].code);
+                                      str+="<tr><td>Category Name</td><td>"+data[i].category_name+"</td></tr>";
+                                      str+="<tr><td>Invoice No</td><td>"+data[i].invoice_id+"</td></tr>";
+                                      str+="<tr><td>Date</td><td>"+data[i].Invoice_Date+"</td></tr>";
+                                      str+="<tr><td>C Code</td><td>"+data[i].code+"</td></tr>";
+                                      str+="<tr><td>Customer Name</td><td>"+data[i].customer_name+"</td></tr>";
+                                      str+="<tr><td>Sub Total</td><td>"+data[i].Sub_Total+"</td></tr>";
+                                      str+="<tr><td>Discount</td><td>"+data[i].Discount+"</td></tr>";
+                                      str+="<tr><td>Total</td><td>"+data[i].Total+"</td></tr>";
+
+				  }
+   				  $("#list").html(str);
+				}
+				 //alert(data.token);
+
+			});
+		}
+
+	});
+	
+	
+	
+	return false;
+}
