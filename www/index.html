@@ -42,42 +42,45 @@
 
             <div id="deviceready" >
                 <div class="container">
-            <form class="form-signin" role="form" method="post" onsubmit="return login(this)">
-      	<h1><img src="img/logo.png"></h1>
-<!--        <div class="row">
-        	<div class="col-sm-12 col-md-12">
-            	<div class="alert alert-success"><b><i class="fa fa-check"></i></b> You successfully read this important alert message.</div>
-                <div class="alert alert-info"><b><i class="fa fa-info"></i></b> This alert needs your attention.</div>
-                <div class="alert alert-warning"><b><i class="fa fa-warning"></i></b> Better check yourself, you're not looking too good. </div>
-                <div class="alert alert-danger"><b><i class="fa fa-times"></i></b> Change a few things up and try submitting again. </div>
+                    <form class="form-signin" role="form" method="post" onsubmit="return login(this)">
+                        
+                        
+                        <h1><img src="img/logo.png"></h1>
+                <!--        <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                <div class="alert alert-success"><b><i class="fa fa-check"></i></b> You successfully read this important alert message.</div>
+                                <div class="alert alert-info"><b><i class="fa fa-info"></i></b> This alert needs your attention.</div>
+                                <div class="alert alert-warning"><b><i class="fa fa-warning"></i></b> Better check yourself, you're not looking too good. </div>
+                                <div class="alert alert-danger"><b><i class="fa fa-times"></i></b> Change a few things up and try submitting again. </div>
+                            </div>
+                        </div>-->
+                        <div id="form">
+                        <h2>Please Sign In</h2>
+                        <label>Email</label>
+                        <input type="text" name="username" class="form-control" id="usr" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                            <div class="row">
+                            <div class="col-md-6">            
+                                <label class="checkbox">
+                                  <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                                </div>
+                            <div class="col-md-6 forgetpass"><a href="#">Forgot password?</a></div>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        </div>
+                        <table id="list">
+                        </table>
+                      </form>
+<!--                    <div class="loginfooter">
+                      <img src="img/nxblog1.png">
+                      <p>Copyright © 2015 Nextbridge Private Limited.<br>All rights reserved.</p>
+                    </div>-->
+                    
+                </div> <!-- /container -->
             </div>
-        </div>-->
-        <h2>Please Sign In</h2>
-        <label>Email</label>
-        <input type="text" name="username" class="form-control" id="usr" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
-        <label>Password</label>
-        <input type="password" name="password" class="form-control" required>
-	    <div class="row">
-            <div class="col-md-6">            
-                <label class="checkbox">
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-	        </div>
-            <div class="col-md-6 forgetpass"><a href="forgot-password.html">Forgot password?</a></div>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-            <div class="loginfooter">
-              <img src="img/nxblog1.png">
-              <p>Copyright © 2015 Nextbridge Private Limited.<br>All rights reserved.</p>
-            </div>
-
-        </div> <!-- /container -->
-            </div>
-<<<<<<< HEAD
-=======
-	   <table id="list" width="100%"></table>
->>>>>>> bcc4ed0c8728dbb8dc98e57ffc97359260aec7ad
+            
         </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -97,7 +100,6 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-         <table id="list">
-	</table>
+        
     </body>
 </html>
