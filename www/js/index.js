@@ -132,7 +132,18 @@ function login(frm){
 		if(data.msg)
 			alert(data.msg);
 		else{
-			$.ajax({
+                   localStorage.token=data.token;
+                    window.location ='invoice.html';
+		}
+
+	});
+	
+	
+	return false;
+}
+function datapage(){
+    var token =localStorage.token;
+    $.ajax({
 			  type: "POST",
 			  dataType: "json",
 			  async: true, 
@@ -140,7 +151,7 @@ function login(frm){
 
 			  crossDomain: true,
 			  url: "http://skelectrical.net/namumkin/ws.php",
-			  data: "token="+data.token+"&get=invocie",//'},//JSON.stringify(postdata),
+			  data: "token="+token+"&get=invocie",//'},//JSON.stringify(postdata),
 
 			}).fail(function(msg){ 
 				alert("login failed");
@@ -153,7 +164,7 @@ function login(frm){
 			          //console.log(data);
 			          //data = jQuery.parseJSON(data);
 				  //console.log(data);
-				 $("#form").hide();
+				 //$("#form").hide();
                                   var str = "<tr><th>Category Name</th><th>Invoice No</th><th>Date</th><th>C Code</th><th>Customer Name</th><th>Sub Total</th><th>Discount</th><th>Total</th></tr>";
 				  for(i = 0; i < data.length; i++){
                                       //alert(data[i].code);
@@ -172,14 +183,7 @@ function login(frm){
 				 //alert(data.token);
 
 			});
-		}
-
-	});
-	
-	
-	return false;
 }
-
 $( document ).bind( "mobileinit", function() {
     // Make your jQuery Mobile framework configuration changes here!
 
