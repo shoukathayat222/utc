@@ -71,7 +71,7 @@ function login(frm){
 		
 	})
 	.success(function(data){
-		alert('login');
+		//alert('login');
 		if(data.msg)
 			alert(data.msg);
 		else{
