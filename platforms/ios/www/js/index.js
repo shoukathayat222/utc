@@ -71,7 +71,7 @@ function login(frm){
 		
 	})
 	.success(function(data){
-		alert('login');
+		//alert('login');
 		if(data.msg)
 			alert(data.msg);
 		else{
@@ -97,17 +97,17 @@ function login(frm){
 			          //data = jQuery.parseJSON(data);
 				  //console.log(data);
 				 $("#login").hide();
-                                  var str = "";
+                                  var str = "<tr><th>Category Name</th><th>Invoice No</th><th>Date</th><th>C Code</th><th>Customer Name</th><th>Sub Total</th><th>Discount</th><th>Total</th></tr>";
 				  for(i = 0; i < data.length; i++){
                                       //alert(data[i].code);
-                                      str+="<tr><td>Category Name</td><td>"+data[i].category_name+"</td></tr>";
-                                      str+="<tr><td>Invoice No</td><td>"+data[i].invoice_id+"</td></tr>";
-                                      str+="<tr><td>Date</td><td>"+data[i].Invoice_Date+"</td></tr>";
-                                      str+="<tr><td>C Code</td><td>"+data[i].code+"</td></tr>";
-                                      str+="<tr><td>Customer Name</td><td>"+data[i].customer_name+"</td></tr>";
-                                      str+="<tr><td>Sub Total</td><td>"+data[i].Sub_Total+"</td></tr>";
-                                      str+="<tr><td>Discount</td><td>"+data[i].Discount+"</td></tr>";
-                                      str+="<tr><td>Total</td><td>"+data[i].Total+"</td></tr>";
+                                      str+="<tr><td>"+data[i].category_name+"</td>";
+                                      str+="<td>"+data[i].invoice_id+"</td>";
+                                      str+="<td>"+data[i].Invoice_Date+"</td>";
+                                      str+="<td>"+data[i].code+"</td>";
+                                      str+="<td>"+data[i].customer_name+"</td>";
+                                      str+="<td>"+data[i].Sub_Total+"</td>";
+                                      str+="<td>"+data[i].Discount+"</td>";
+                                      str+="<td>"+data[i].Total+"</td></tr>";
 
 				  }
    				  $("#list").html(str);
