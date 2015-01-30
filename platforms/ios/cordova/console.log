@@ -182,3 +182,29 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 
 2015-01-28 06:41:01.546 UTC Mobile APP[5395:40864] Resetting plugins due to page load.
 2015-01-28 06:41:01.660 UTC Mobile APP[5395:40864] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/index.html
+2015-01-28 06:47:15.290 UTC Mobile APP[5651:43934] Apache Cordova native platform version 3.7.0 is starting.
+2015-01-28 06:47:15.292 UTC Mobile APP[5651:43934] Multi-tasking -> Device: YES, App: YES
+2015-01-28 06:47:15.306 UTC Mobile APP[5651:43934] Unlimited access to network resources
+2015-01-28 06:47:15.309 UTC Mobile APP[5651:43934] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-01-28 06:47:15.786 UTC Mobile APP[5651:43934] Resetting plugins due to page load.
+2015-01-28 06:47:16.024 UTC Mobile APP[5651:43934] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/index.html
+2015-01-28 06:47:31.031 UTC Mobile APP[5804:44437] Apache Cordova native platform version 3.7.0 is starting.
+2015-01-28 06:47:31.033 UTC Mobile APP[5804:44437] Multi-tasking -> Device: YES, App: YES
+2015-01-28 06:47:31.037 UTC Mobile APP[5804:44437] Unlimited access to network resources
+2015-01-28 06:47:31.040 UTC Mobile APP[5804:44437] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-01-28 06:47:31.327 UTC Mobile APP[5804:44437] Resetting plugins due to page load.
+2015-01-28 06:47:31.423 UTC Mobile APP[5804:44437] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/index.html
