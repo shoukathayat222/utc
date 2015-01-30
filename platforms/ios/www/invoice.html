@@ -78,10 +78,10 @@
                             	<table id="example" class="display responsive">
                                     <thead>
                                         <tr>
-                                        	<th class="min-phone-1">Category Name</th>
-                                            <th class="min-phone-1">Invoice No</th>
+                                        	<th class="min-phone-1">Invoice No</th>
                                             <th class="min-phone-1">Date</th>
                                             <th class="min-phone-1">C Code</th>
+                                        	<th class="min-phone-1">Category Name</th>
                                             <th class="min-phone-1">Customer Name</th>
                                             <th class="min-phone-1">Sub Total</th>
                                             <th class="min-phone-1">Discount</th>
@@ -90,10 +90,10 @@
                                     </thead>
                              
                                     <tfoot>
-                                        	<th >Category Name</th>
-                                            <th >Invoice No</th>
+											<th >Invoice No</th>
                                             <th >Date</th>
                                             <th >C Code</th>
+                                        	<th >Category Name</th>
                                             <th >Customer Name</th>
                                             <th >Sub Total</th>
                                             <th >Discount</th>
@@ -150,10 +150,10 @@
 			$('#example').DataTable( {
 				"ajax": "http://skelectrical.net/namumkin/ws.php?token="+token,
 				"columns": [
-					{ "data": "category_name" },
 					{ "data": "invoice_id" },
 					{ "data": "Invoice_Date" },
 					{ "data": "code" },
+					{ "data": "category_name" },
 					{ "data": "customer_name" },
 					{ "data": "Sub_Total" },
 					{ "data": "Discount" },

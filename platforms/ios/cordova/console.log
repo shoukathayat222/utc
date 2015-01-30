@@ -241,3 +241,18 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-01-30 07:26:50.785 UTC Mobile APP[5380:48911] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/invoice.html
 2015-01-30 07:27:40.528 UTC Mobile APP[5380:48911] Resetting plugins due to page load.
 2015-01-30 07:27:40.575 UTC Mobile APP[5380:48911] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/index.html
+2015-01-30 07:40:08.994 UTC Mobile APP[6178:55130] Apache Cordova native platform version 3.7.0 is starting.
+2015-01-30 07:40:08.996 UTC Mobile APP[6178:55130] Multi-tasking -> Device: YES, App: YES
+2015-01-30 07:40:09.015 UTC Mobile APP[6178:55130] Unlimited access to network resources
+2015-01-30 07:40:09.018 UTC Mobile APP[6178:55130] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-01-30 07:40:09.677 UTC Mobile APP[6178:55130] Resetting plugins due to page load.
+2015-01-30 07:40:10.034 UTC Mobile APP[6178:55130] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/index.html
+2015-01-30 07:40:20.711 UTC Mobile APP[6178:55130] Resetting plugins due to page load.
+2015-01-30 07:40:21.047 UTC Mobile APP[6178:55130] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/invoice.html
