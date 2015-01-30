@@ -1,94 +1,174 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>..:: UTC ::..</title>
 
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/li-scroller.css" rel="stylesheet" type="text/css" /> 
+	
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>..:: UTC ::..</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
-        <link href="css/font-awesome.css" rel="stylesheet">
-        <script type="text/javascript" charset="utf-8">
-            var onDeviceReady = function() {
-                document.getElementById("devready").innerHTML = "OnDeviceReady fired.";
-            };
-            function init() {
-                document.addEventListener("deviceready", onDeviceReady, true);
-            }
-            function logout(){
-			localStorage.clear();
-			window.location="index.html";
-		}
-                function check_login(){
-                if(typeof(localStorage.id)==="undefined"){
-                    window.location="index.html";
-                }
-            }
-            
-        </script>
-    </head>
-    <body onload="datapage()">
-        <div class="app">
-
-            <div id="deviceready" >
-                <div class="container">
-                        <form class="form-signin" role="form" >
-                        <h1><img src="img/logo.png"></h1>
-                        <table id="list">
-                            
-                        </table>
-                        </form>
-                      <!--                    <div class="loginfooter">
-                      <img src="img/nxblog1.png">
-                      <p>Copyright © 2015 Nextbridge Private Limited.<br>All rights reserved.</p>
-                    </div>-->
-                    
-                </div> <!-- /container -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+	
+  </head>
+  <body >
+	<div id="header">
+    	<div class="container-fluid">
+        	<div class="col-md-12">
+            	<div class="col-md-4"><a href="dashboard.html" class="logo"><img src="img/logo.png"></a></div>
+                <div class="col-md-8 changepass text-right">
+                	Welcome Administrator 
+                    <a href="javascript:logout()">logout</a>
+                </div>
             </div>
-            
         </div>
+    	<div class="navbar navbar-inverse" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button> 
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="employees.html">Invoice</a></li>
+                    <li><a href="events.html">Save Amount</a></li>
+                    <li><a href="inventory.html">Reports</a></li>
+                </ul> 
+            </div>
+          </div>
+          <!--<div class="submenu">
+        	<div class="container-fluid">            	
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="employees.html">Invoice</a></li>
+                    <li><a href="events.html">Save Amount</a></li>
+                    <li><a href="inventory.html">Reports</a></li>
+                </ul>
+        	</div>
+          </div>-->
+    	</div>
+	</div>
+	<div id="body">
+        <div class="container-fluid">
+            <div class="row">      
+                <div class="col-sm-12 col-md-12">
+                    <div class="mainbox">
+                        <div class="boxhead col-xs-12 col-sm-12"><h5>UTC Invoice List</h5></div>
+                        <div class="row">
+                        	<div class="col-sm-12 col-md-12 colorscheme">
+                            	<table id="example" class="display responsive">
+                                    <thead>
+                                        <tr>
+                                        	<th class="min-phone-1">Category Name</th>
+                                            <th class="min-phone-1">Invoice No</th>
+                                            <th class="min-phone-1">Date</th>
+                                            <th class="min-phone-1">C Code</th>
+                                            <th class="min-phone-1">Customer Name</th>
+                                            <th class="min-phone-1">Sub Total</th>
+                                            <th class="min-phone-1">Discount</th>
+                                            <th class="min-phone-1">Total</th>
+                                       </tr>
+                                    </thead>
+                             
+                                    <tfoot>
+                                        	<th >Category Name</th>
+                                            <th >Invoice No</th>
+                                            <th >Date</th>
+                                            <th >C Code</th>
+                                            <th >Customer Name</th>
+                                            <th >Sub Total</th>
+                                            <th >Discount</th>
+                                            <th >Total</th>
+                                    </tfoot>
+                                    <tbody id="list">
+                                    </tbody>
+                        		</table>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
-	<script src="js/jquery.min.js"></script> 
-        <script src="js/bootstrap.min.js"></script> 
-        <script src="js/docs.min.js"></script>
-            <script type="text/javascript">
-            $(function () {
-                      $('[data-toggle="tooltip"]').tooltip()
-                    })
-        </script> 
-        <script type="text/javascript" src="cordova.js"></script>
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+	<script src="js/jquery.li-scroller.1.0.js"></script>
+    <link href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <link href="http://cdn.datatables.net/responsive/1.0.3/css/dataTables.responsive.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+    <script src="http://cdn.datatables.net/responsive/1.0.3/js/dataTables.responsive.min.js"></script>
+    
+   
+	<script type="text/javascript">
+		$(function(){
+		    $("ul#ticker01").liScroll();
+			
+			$(".searchbtn").click( function(){
+				$(".searchtoggle").toggle("slow");
+			});
+		});
+	</script>
+    <script type="text/javascript"> 
+		$(function() {
+			$('#filter').keyup(function () {
+	
+				var rex = new RegExp($(this).val(), 'i');
+				$('.searchable tr').hide();
+				$('.searchable tr').filter(function () {
+					return rex.test($(this).text());
+				}).show();
+	
+			});
+		}); 
+		$(document).ready(function() {
+			var token =localStorage.token;
+			$('#example').DataTable( {
+				"ajax": "http://skelectrical.net/namumkin/ws.php?token="+token,
+				"columns": [
+					{ "data": "category_name" },
+					{ "data": "invoice_id" },
+					{ "data": "Invoice_Date" },
+					{ "data": "code" },
+					{ "data": "customer_name" },
+					{ "data": "Sub_Total" },
+					{ "data": "Discount" },
+					{ "data": "Total" }
+				],
+				responsive: true
+			} );
+		} );
+	</script> 
+   
+    <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 
         <script type="text/javascript">
             app.initialize();
         </script>
-        
-    </body>
+  </body>
 </html>

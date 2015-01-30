@@ -141,6 +141,14 @@ function login(frm){
 	
 	return false;
 }
+function checklogin(){
+	if(localStorage.token)
+		window.location='invoice.html';
+}
+function logout(){
+	localStorage.clear();
+	window.location='index.html';
+}
 function datapage(){
     var token =localStorage.token;
     $.ajax({
@@ -165,7 +173,7 @@ function datapage(){
 			          //data = jQuery.parseJSON(data);
 				  //console.log(data);
 				 //$("#form").hide();
-                                  var str = "<tr><th>Category Name</th><th>Invoice No</th><th>Date</th><th>C Code</th><th>Customer Name</th><th>Sub Total</th><th>Discount</th><th>Total</th></tr>";
+                                  var str = "";
 				  for(i = 0; i < data.length; i++){
                                       //alert(data[i].code);
                                       str+="<tr><td>"+data[i].category_name+"</td>";
@@ -175,7 +183,7 @@ function datapage(){
                                       str+="<td>"+data[i].customer_name+"</td>";
                                       str+="<td>"+data[i].Sub_Total+"</td>";
                                       str+="<td>"+data[i].Discount+"</td>";
-                                      str+="<td>"+data[i].Total+"</td></tr>";
+                                      str+="<td>"+(Number(data[i].Sub_Total) - Number(data[i].Discount))+"</td></tr>";
 
 				  }
    				  $("#list").html(str);
