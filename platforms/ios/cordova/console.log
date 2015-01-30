@@ -208,3 +208,19 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 
 2015-01-28 06:47:31.327 UTC Mobile APP[5804:44437] Resetting plugins due to page load.
 2015-01-28 06:47:31.423 UTC Mobile APP[5804:44437] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/index.html
+2015-01-30 05:23:21.997 UTC Mobile APP[3488:8486] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Data/Application/9B2120E7-6FD6-4D37-8156-E0585DB95CA8/Library/Cookies/Cookies.binarycookies
+2015-01-30 05:23:22.094 UTC Mobile APP[3488:8486] Apache Cordova native platform version 3.7.0 is starting.
+2015-01-30 05:23:22.094 UTC Mobile APP[3488:8486] Multi-tasking -> Device: YES, App: YES
+2015-01-30 05:23:22.120 UTC Mobile APP[3488:8486] Unlimited access to network resources
+2015-01-30 05:23:22.123 UTC Mobile APP[3488:8486] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-01-30 05:23:22.829 UTC Mobile APP[3488:8486] Resetting plugins due to page load.
+2015-01-30 05:23:23.245 UTC Mobile APP[3488:8486] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/index.html
+2015-01-30 05:23:44.096 UTC Mobile APP[3488:8486] Resetting plugins due to page load.
+2015-01-30 05:23:44.201 UTC Mobile APP[3488:8486] Finished load of: file:///Users/apple/Library/Developer/CoreSimulator/Devices/99EFA053-64C8-48DD-A873-3EE408C9A94C/data/Containers/Bundle/Application/5B4867A7-D211-48E0-8790-976280E1D0F4/UTC%20Mobile%20APP.app/www/invoice.html

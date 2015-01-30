@@ -48,34 +48,102 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+function loadTab(id)
+{
+    
 
+}
 function login(frm){
 	var username=frm.username.value;
 	var pass=frm.password.value;
-	
+    /*if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            xmlDoc=xmlhttp.responseXML;
+            var title="";
+            var image="";                                           
+
+            x=xmlDoc.getElementsByTagName("response");
+            console.log(x);
+        }
+    }
+
+    var url = "http://nexthrm-dev.vteamslabs.com/web-service/?method=getAuthentication&userName="+username+"&userPassword="+pass;
+
+    xmlhttp.open("GET",url,true);
+    xmlhttp.setRequestHeader('Content-Type', 'text/plain');
+    xmlhttp.send();*/
 	
         //var postdata={ username: 'shoukat', password: '123456' };
 	$.ajax({
-	  type: "POST",
+	  type: "post",
 	  dataType: "json",
 	  async: true,
 	  cache : false,
-
 	  crossDomain: true,
 	  url: "http://skelectrical.net/namumkin/ws.php",
-//	  data: "id=453&action=test" 
-	  data: "username="+username+"&password="+pass,//'},//JSON.stringify(postdata),
-
-	}).fail(function(msg){ 
+	  data: "username="+username+"&password="+pass,
+	}).fail(function(responseText){ 
 		alert("login failed 1");
+                
+                //console.log(responseText);
+                //alert(responseText.getResponseHeader());
+               /* var test= JSON.stringify(responseText);//xml;
+                //alert(test);
+                test = test.replace('<?xml version="1.0" encoding="UTF-8"?>','');
+                //xml = '<ServiceEmployee generator="zend" version="1.0"><getAuthentication><response>ee5467e84992ee4e326b92317f400121</response><status>success</status></getAuthentication></ServiceEmployee>';
+                $(test).find('getAuthentication').each(function(){
+                    var sTitle = $(this).find('response').text();
+                    var sPublisher = $(this).find('status').text();
+                    alert(sTitle);
+                   // $("<li></li>").html(sTitle + ", " + sPublisher).appendTo("#dvContent ul");
+                  });*/
+                //var xmlDoc = xml;
+//                alert(xml.length);
+//                //alert(xmlDoc);
+//                var markers = xmlDoc.getElementsByTagName("response") ;
+//                for ( var i = 0; i < markers.length ; i++ ) {
+//                    alert(markers[i]);
+//                  }
+                //alert(msg.)
+                //xmlDoc = $.parseXML( xml ),
+                //console.log(xmlDoc);
+                
+                //$xml = $( xmlDoc ),
+                //$title = $xml.find( "response" );
+                //alert($title);
+                 //var test=$(xml).find('getAuthentication').first().text();
+                 //alert(test);
+                 //$('response', xml).each(function() {alert($(this).find('response').text());});		
 		
 	})
 	.success(function(data){
 		//alert('login');
+                //alert(data);
 		if(data.msg)
 			alert(data.msg);
 		else{
-			$.ajax({
+                   localStorage.token=data.token;
+                    window.location ='invoice.html';
+		}
+
+	});
+	
+	
+	return false;
+}
+function datapage(){
+    var token =localStorage.token;
+    $.ajax({
 			  type: "POST",
 			  dataType: "json",
 			  async: true, 
@@ -83,7 +151,7 @@ function login(frm){
 
 			  crossDomain: true,
 			  url: "http://skelectrical.net/namumkin/ws.php",
-			  data: "token="+data.token+"&get=invocie",//'},//JSON.stringify(postdata),
+			  data: "token="+token+"&get=invocie",//'},//JSON.stringify(postdata),
 
 			}).fail(function(msg){ 
 				alert("login failed");
@@ -96,7 +164,7 @@ function login(frm){
 			          //console.log(data);
 			          //data = jQuery.parseJSON(data);
 				  //console.log(data);
-				 $("#login").hide();
+				 //$("#form").hide();
                                   var str = "<tr><th>Category Name</th><th>Invoice No</th><th>Date</th><th>C Code</th><th>Customer Name</th><th>Sub Total</th><th>Discount</th><th>Total</th></tr>";
 				  for(i = 0; i < data.length; i++){
                                       //alert(data[i].code);
@@ -115,15 +183,7 @@ function login(frm){
 				 //alert(data.token);
 
 			});
-		}
-
-	});
-	
-	
-	
-	return false;
 }
-
 $( document ).bind( "mobileinit", function() {
     // Make your jQuery Mobile framework configuration changes here!
 

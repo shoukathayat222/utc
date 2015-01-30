@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <title>..:: NextHRM ::..</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/li-scroller.css" rel="stylesheet" type="text/css" /> 
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+	<div id="header">
+    	<div class="container-fluid">
+        	<div class="col-md-12">
+            	<div class="col-md-4"><a href="dashboard.html" class="logo"><img src="images/logo.png"></a></div>
+                <div class="col-md-8 changepass text-right">
+                	Welcome Elizabeth Brandon 
+                    <a href="#">Change Password</a>
+					<a href="#">logout</a>
+                </div>
+            </div>
+        </div>
+    	<div class="navbar navbar-inverse" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button> 
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="employees.html">Employees</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li class="active"><a href="#">Leave</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="report.html">Report</a></li>
+                    <li><a href="administrator.html">Administration</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                </ul> 
+            </div>
+          </div>
+          <div class="submenu">
+        	<div class="container-fluid">            	
+                <ul>
+                    <li><a href="#">My Leave Planner</a></li> 
+                    <li><a href="#">Employee Leave Planner</a></li>
+                    <li><a href="#">My Token</a></li>
+                    <li><a href="#">Employee Token</a></li>
+                    <li><a href="#">Leave Quota</a></li>
+                    <li><a href="#">Public Holidays</a></li>
+                </ul>
+        	</div>
+          </div>
+    	</div>
+	</div>
+	<div id="body">
+        <div class="container-fluid">
+            <div class="row">      
+                <div class="col-sm-12 col-md-12">
+                    <div class="mainbox">
+                        <div class="boxhead col-xs-12 col-sm-12"><h5>My Leave Planner</h5></div>
+                        <div class="row">
+	                        <div class="col-sm-12 col-md-12">
+                            	<div class="leaveheadingbar"><a href="#" class="fa fa-chevron-circle-left">&nbsp;</a> <span>20<samp>15</samp> </span> <a href="#" class="fa fa-chevron-circle-right">&nbsp;</a></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        	<div class="col-sm-12 col-md-12 colorscheme">
+                            	<div class="col-sm-3 col-md-6"><span class="text-danger">The days are marked in the calendar as per following color scheme.</span></div>
+                            	<div class="col-sm-3 col-md-1"><span class="btn-success">Approved</span></div>
+                                <div class="col-sm-3 col-md-1"><span class="btn-warning">Pending by HR</span></div>
+                                <div class="col-sm-3 col-md-1"><span class="btn-danger">Pending by DM</span></div>
+                            	<div class="col-sm-3 col-md-1"><span class="btn-info">Weekend</span></div>
+                            	<div class="col-sm-3 col-md-1"><span class="btn-today">Today</span></div>
+                            	<div class="col-sm-3 col-md-1"><span class="btn-holiday">Holiday</span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        	<div class="col-sm-12 col-md-12 colorscheme">
+                            	<div class="col-sm-6 col-md-6 pull-right text-right"><p class="text-danger text-right">Click the desired day in calender to mark the leave.</p>
+                        		<a href="javascript:void(0);" data-toggle="modal" data-target="#myModaltwo">Rejected / Deleted Leave</a>                                    
+                                	<!-- Modal -->
+                                    <div class="modal fade" id="myModaltwo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Reject/Deleted leave</h4>
+                                          </div>
+                                          <div class="modal-body">                                                        
+                                             <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>From Date</th>
+                                                            <th>To Date</th>
+                                                            <th>Duration</th>
+                                                            <th>Reason</th>
+                                                            <th>Rejected By</th>
+                                                            <th>Remarks</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="eventable" align="left">
+                                                        <tr>
+                                                            <td>2015-02-11 </td>
+                                                            <td>2015-02-11</td>
+                                                            <td>1.00 </td>
+                                                            <td>Sick</td>
+                                                            <td>HR Deleted </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2015-02-11 </td>
+                                                            <td>2015-02-11</td>
+                                                            <td>1.00 </td>
+                                                            <td>Sick</td>
+                                                            <td>HR Deleted </td>
+                                                        </tr>
+                                                    </tbody>
+                                               </table>
+                                               </div>
+                                          </div> 
+                                        </div>
+                                      </div>
+                                    </div>
+								</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        	<div class="col-sm-12 col-md-12">
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">January 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">February 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">March 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a class="mehronbg" href="javascript:void(0);" data-toggle="modal" data-target="#myModal">5</a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myModalLabel">Mark your leave</h4>
+                                                  </div>
+                                                  <div class="modal-body">                                                        
+                                                    <form class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Leave Type</label>
+                                                        <div class="col-sm-10">
+                                                            <select class="form-control">
+                                                                <option>Select leave type</option>
+                                                                <option>Compensation</option>
+                                                                <option>Half</option>
+                                                                <option>Short</option>
+                                                                <option>Sick/Casual</option>
+                                                                <option>Annual</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">From Date</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-control" placeholder="2015-01-23" type="text" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">To Date</label>
+                                                        <div class="input-group datetwo col-sm-8">
+                                                            <input type="text" class="form-control">
+                                                            <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Duration</label>
+                                                        <div class="col-sm-10">
+                                                            <p class="form-control-static">email@example.com</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Reason</label>
+                                                        <div class="col-sm-10">
+                                                            <select class="form-control">
+                                                                <option>Select leave type</option>
+                                                                <option>Compensation</option>
+                                                                <option>Half</option>
+                                                                <option>Short</option>
+                                                                <option>Sick/Casual</option>
+                                                                <option>Annual</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">EMP Comments</label>
+                                                        <div class="col-sm-10">
+                                                            <textarea class="form-control"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 col-xs-12 control-label">Token</label>
+                                                        <div class="col-sm-8 col-xs-9">
+                                                            <select class="form-control">
+                                                                <option>Select leave type</option>
+                                                                <option>Compensation</option>
+                                                                <option>Half</option>
+                                                                <option>Short</option>
+                                                                <option>Sick/Casual</option>
+                                                                <option>Annual</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-xs-1 col-sm-1"><a href="#" class="fa fa-plus-circle"></a></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Submitted Date</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-control" placeholder="2015-01-23" type="text" disabled>
+                                                        </div>
+                                                    </div>
+                                                    </form>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary">Save and notify to manager</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Reset</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">April 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td class="yellowbg"><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">May 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td class="bluebg"><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">June 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">July 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td class="greenbg"><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">Augest 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">September 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">October 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">November 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xm-12 col-sm-4 col-md-3 leaves">
+                                	<table class="table table-bordered">
+                                      <tbody>
+                                        <tr class="calendar-month-header"> 
+                                          <th colspan="8" align="center">December 2015</th>                                          
+                                        </tr>
+                                        <tr class="calendar-week-header">
+                                          <th>Sun</th>
+                                          <th>Mon</th>
+                                          <th>Tue</th>
+                                          <th>Wed</th>
+                                          <th>Thu</th>
+                                          <th>Fri</th>
+                                          <th>Sat</th>
+                                        </tr>
+                                        <tr>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#"></a></td>
+                                          <td><a href="#">1</a></td>
+                                          <td><a href="#">2</a></td>
+                                          <td class="weekend"><a href="#">3</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">4</a></td>
+                                          <td><a href="#">5</a></td>
+                                          <td><a href="#">6</a></td>
+                                          <td><a href="#">7</a></td>
+                                          <td><a href="#">8</a></td>
+                                          <td><a href="#">9</a></td>
+                                          <td class="weekend"><a href="#">10</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">11</a></td>
+                                          <td><a href="#">12</a></td>
+                                          <td><a href="#">13</a></td>
+                                          <td><a href="#">14</a></td>
+                                          <td><a href="#">15</a></td>
+                                          <td><a href="#">16</a></td>
+                                          <td class="weekend"><a href="#">17</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">18</a></td>
+                                          <td><a href="#">19</a></td>
+                                          <td><a href="#">20</a></td>
+                                          <td><a href="#">21</a></td>
+                                          <td><a href="#">22</a></td>
+                                          <td><a href="#">23</a></td>
+                                          <td class="weekend"><a href="#">24</a></td>
+                                        </tr> 
+                                        <tr>
+                                          <td class="weekend"><a href="#">25</a></td>
+                                          <td><a href="#">26</a></td>
+                                          <td><a href="#">27</a></td>
+                                          <td><a href="#">28</a></td>
+                                          <td><a href="#">29</a></td>
+                                          <td><a href="#">30</a></td>
+                                          <td class="weekend"><a href="#">31</a></td>
+                                        </tr> 
+                                      </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>        
+      <div class="loginfooter bodyfooter">
+      	<img src="images/nxblog2.png">
+        <p>Copyright © 2015 Nextbridge Private Limited.<br>All rights reserved.</p>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+	<script src="js/jquery.li-scroller.1.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+		    $("ul#ticker01").liScroll();
+			
+			$(".searchbtn").click( function(){
+				$(".searchtoggle").toggle("slow");
+			});
+		});
+	</script>
+    <script type="text/javascript"> 
+		$(function() {
+			$('#filter').keyup(function () {
+	
+				var rex = new RegExp($(this).val(), 'i');
+				$('.searchable tr').hide();
+				$('.searchable tr').filter(function () {
+					return rex.test($(this).text());
+				}).show();
+	
+			});
+		}); 
+	</script> 
+  </body>
+</html>
