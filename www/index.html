@@ -26,7 +26,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>..:: NextHRM ::..</title>
+        <title>AutoDXS</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,23 +34,26 @@
         <link href="css/font-awesome.css" rel="stylesheet">
         
     </head>
-    <body onLoad="checklogin()">
+    <body >
         <div class="app">
 
             <div id="deviceready" >
                 <div class="container">
-                    <form class="form-signin" role="form" method="post" onsubmit="return login(this)">
+                    <div id="loadiframe">
+            <!--          <iframe id="iframe" src="" style="width:100%;height: 1000px !Important;border:1px solid #f00;"></iframe>-->
+                  </div>
+<!--                    <form class="form-signin" role="form" method="post" onsubmit="return login(this)">
                         
                         
                         <h1><img src="img/logo.png"></h1>
-                        <!--        <div class="row">
+                                <div class="row">
                                 <div class="col-sm-12 col-md-12">
                                 <div class="alert alert-success"><b><i class="fa fa-check"></i></b> You successfully read this important alert message.</div>
                                 <div class="alert alert-info"><b><i class="fa fa-info"></i></b> This alert needs your attention.</div>
                                 <div class="alert alert-warning"><b><i class="fa fa-warning"></i></b> Better check yourself, you're not looking too good. </div>
                                 <div class="alert alert-danger"><b><i class="fa fa-times"></i></b> Change a few things up and try submitting again. </div>
                             </div>
-                        </div>-->
+                        </div>
                         <div id="form">
                         <h2>Please Sign In</h2>
                         <label>Email</label>
@@ -68,7 +71,7 @@
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                         </div>
                         
-                      </form>
+                      </form>-->
 <!--                    <div class="loginfooter">
                       <img src="img/nxblog1.png">
                       <p>Copyright © 2015 Nextbridge Private Limited.<br>All rights reserved.</p>
@@ -96,6 +99,15 @@
         <script type="text/javascript">
             app.initialize();
         </script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            user_id=localStorage.user_id_mobile;
+            //alert(user_id);
+            //$("#iframe").attr('src','https://aurora.dubailist.com/store/'+user_id);
+            var src='http://rick.toyotatxm.net';
+            $("#loadiframe").html('<iframe id="iframe" src="'+src+'" style="width:100%;height: 1000px !Important;"></iframe>');
+        });
+    </script>
         
     </body>
 </html>
