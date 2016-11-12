@@ -1,0 +1,131 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+	
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    }
+};
+
+function login(frm){
+	var username=frm.username.value;
+	var pass=frm.password.value;
+	
+	
+        //var postdata={ username: 'shoukat', password: '123456' };
+	$.ajax({
+	  type: "POST",
+	  dataType: "json",
+	  async: true,
+	  cache : false,
+
+	  crossDomain: true,
+	  url: "http://skelectrical.net/namumkin/ws.php",
+//	  data: "id=453&action=test" 
+	  data: "username="+username+"&password="+pass,//'},//JSON.stringify(postdata),
+
+	}).fail(function(msg){ 
+		alert("login failed 1");
+		
+	})
+	.success(function(data){
+		alert('login');
+		if(data.msg)
+			alert(data.msg);
+		else{
+			$.ajax({
+			  type: "POST",
+			  dataType: "json",
+			  async: true, 
+			  cache : false,
+
+			  crossDomain: true,
+			  url: "http://skelectrical.net/namumkin/ws.php",
+			  data: "token="+data.token+"&get=invocie",//'},//JSON.stringify(postdata),
+
+			}).fail(function(msg){ 
+				alert("login failed");
+		
+			})
+			.success(function(data){
+				if(data.msg)
+					alert('here'+data.msg);
+				else{
+			          //console.log(data);
+			          //data = jQuery.parseJSON(data);
+				  //console.log(data);
+				 $("#login").hide();
+                                  var str = "";
+				  for(i = 0; i < data.length; i++){
+                                      //alert(data[i].code);
+                                      str+="<tr><td>Category Name</td><td>"+data[i].category_name+"</td></tr>";
+                                      str+="<tr><td>Invoice No</td><td>"+data[i].invoice_id+"</td></tr>";
+                                      str+="<tr><td>Date</td><td>"+data[i].Invoice_Date+"</td></tr>";
+                                      str+="<tr><td>C Code</td><td>"+data[i].code+"</td></tr>";
+                                      str+="<tr><td>Customer Name</td><td>"+data[i].customer_name+"</td></tr>";
+                                      str+="<tr><td>Sub Total</td><td>"+data[i].Sub_Total+"</td></tr>";
+                                      str+="<tr><td>Discount</td><td>"+data[i].Discount+"</td></tr>";
+                                      str+="<tr><td>Total</td><td>"+data[i].Total+"</td></tr>";
+
+				  }
+   				  $("#list").html(str);
+				}
+				 //alert(data.token);
+
+			});
+		}
+
+	});
+	
+	
+	
+	return false;
+}
+
+$( document ).bind( "mobileinit", function() {
+    // Make your jQuery Mobile framework configuration changes here!
+
+    $.mobile.allowCrossDomainPages = true;
+});
